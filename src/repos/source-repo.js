@@ -3,14 +3,17 @@ const toCamelCase = require('./utils/to-camel-case');
 
 class SourceRepo {
   
-
+  //get all sources
   static async find(){
     const {rows} = await pool.query('SELECT * FROM source;');
     return toCamelCase(rows);
   }
+  
+  //get a particular source
+  static async findById(id){
+    const {rows} = await pool.query('SELECT * FROM source WHERE id = $1 ', [id]) 
 
-  static async findById(){
-
+    return toCamelCase(rows)[0];
   }
   
   static async insert(){
