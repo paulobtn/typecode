@@ -15,6 +15,25 @@ router.get('/source', async (req, res) => {
 
 });
 
+router.get('/source/random', async (req, res) => {
+  
+  //how many entries in the tablle "source"
+  const totalSrc = await SourceRepo.count();
+
+  //get a random id from source
+  const id = Math.floor((Math.random()*totalSrc)+1);
+
+  //find the value
+
+  const source = await SourceRepo.findById(id);
+
+  if(source){
+    res.send(source);
+  } else{
+    res.sendStatus(404);
+  }
+});
+
 router.get('/source/:id', async (req, res) => {
   //get a particular source
   const {id} = req.params;
