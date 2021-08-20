@@ -33,7 +33,7 @@ router.post('/source', async (req, res) => {
 
   const source = await SourceRepo.insert(language, project, uri, src);
 
-  res.send(source);
+  res.status(201).send(source);
 });
 
 router.put('/source/:id', async (req, res) => {
