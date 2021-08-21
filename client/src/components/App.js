@@ -1,7 +1,7 @@
 import './style/App.css';
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-c_cpp";
-import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-monokai";
 
 import useRequest from '../hooks/useRequest';
 
@@ -17,7 +17,7 @@ function App() {
     {response.data && 
       <AceEditor
         mode="c_cpp"
-        theme="github"
+        theme="monokai"
         onChange={(a) => {console.log(a)}}
         value={response.data.src}
         name="div-id"
