@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {response.data && <p>
-         {response.data}
+         {response.data.id}
         </p>}
       </header>
     </div>
