@@ -24,7 +24,7 @@ it('Include a new source code', async () => {
   const startingCount = await UserRepo.count();
 
   await request(buildApp())
-    .post('/source')
+    .post('/api/source')
     .send({
         language: "c",
         project: "git",

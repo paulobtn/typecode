@@ -3,7 +3,7 @@ const SourceRepo = require('../repos/source-repo');
 
 const router = express.Router();
 
-router.get('/source', async (req, res) => {
+router.get('/api/source', async (req, res) => {
   //get all the source codes
   const sources = await SourceRepo.find();
   
@@ -15,7 +15,7 @@ router.get('/source', async (req, res) => {
 
 });
 
-router.get('/source/random', async (req, res) => {
+router.get('/api/source/random', async (req, res) => {
   
   //how many entries in the tablle "source"
   const totalSrc = await SourceRepo.count();
@@ -34,7 +34,7 @@ router.get('/source/random', async (req, res) => {
   }
 });
 
-router.get('/source/:id', async (req, res) => {
+router.get('/api/source/:id', async (req, res) => {
   //get a particular source
   const {id} = req.params;
 
@@ -47,7 +47,7 @@ router.get('/source/:id', async (req, res) => {
   }
 });
 
-router.post('/source', async (req, res) => {
+router.post('/api/source', async (req, res) => {
   const { language, project, uri, src } = req.body;
 
   const source = await SourceRepo.insert(language, project, uri, src);
@@ -55,7 +55,7 @@ router.post('/source', async (req, res) => {
   res.status(201).send(source);
 });
 
-router.put('/source/:id', async (req, res) => {
+router.put('/api/source/:id', async (req, res) => {
   const {id} = req.params;
   const {language, project, uri, src } = req.body;
 
@@ -68,7 +68,7 @@ router.put('/source/:id', async (req, res) => {
   }
 });
 
-router.delete('/source/:id', async (req, res) => {
+router.delete('/api/source/:id', async (req, res) => {
 
   const { id } = req.params;
 
