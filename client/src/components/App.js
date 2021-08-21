@@ -24,6 +24,13 @@ function App() {
         showGutter={false}
         fontSize={18}
         editorProps={{ $blockScrolling: true }}
+        setOptions={
+          {
+            enableBasicAutocompletion: false,
+            enableLiveAutocompletion: false,
+            behavioursEnabled: false
+          }
+        }
       />
       }
       
