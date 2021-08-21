@@ -21,6 +21,8 @@ function App() {
         onChange={(a) => {console.log(a)}}
         value={response.data.src}
         name="div-id"
+        showGutter={false}
+        fontSize={18}
         editorProps={{ $blockScrolling: true }}
       />
       }
