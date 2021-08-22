@@ -12,7 +12,7 @@
 html{
   box-sizing: border-box;
   /* 1rem = 10px, 10px/16px = 62.5% */
-  /* font-size: 62.5%;  */
+  font-size: 62.5%;
 }
 
 body {
@@ -42,20 +42,24 @@ code {
   /* border-style: solid; */
 }
 
-.source-container {
-  font-size: calc(10px + 1.1vmin);
-  color: white;
-  border: 2px solid #181c24;
-  border-left: 10px solid #686c74 ;
-  border-radius: 10px;
-  width:70%;
-  height:85vh;
-  padding-left:3rem;
-  padding-top:1.5rem;
-  background-color: #383c44;
-}
+/* .source-container { */
+  /* [> font-size: calc(10px + 1.1vmin); <] */
+  /* position: relative; */
+  /* font-size: 2.0rem; */
+  /* color: white; */
+  /* border: 2px solid #181c24; */
+  /* border-left: 10px solid #686c74 ; */
+  /* border-radius: 10px; */
+  /* width:70%; */
+  /* height:85vh; */
+  /* padding-left:3.3rem; */
+  /* padding-top:3rem; */
+  /* background-color: #383c44; */
+/* } */
 
-.src-char{
-  opacity:.5;
-}
+/* .src-char{ */
+  /* opacity:.5; */
+/* } */
+
+
 
