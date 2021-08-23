@@ -8,6 +8,7 @@ const useFetch = (url , options = null) => {
     fetch(url, options)
       .then(res => res.json())
       .then(data => setData(data));
+
   }, [url, options]);
 
   return {data}
