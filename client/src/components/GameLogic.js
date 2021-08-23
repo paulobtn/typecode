@@ -13,43 +13,61 @@ const convertTypedCharacter = (c) => {
 
 const GameLogic = (props) => {
 
-  const [cursorPosition, setCursorPosition] = useState(0);
-  // const [pressedKey, setPressedKey] = useState(null);
-  const [wrongChars, setWrongChars] = useState([]);
+  // const [cursorPosition, setCursorPosition] = useState(0);
+  // const [wrongChars, setWrongChars] = useState([]);
+
+  const [codeState, setCodeState] = useState({
+    cursorPosition: 0,
+    wrongChars: []
+  })
   
   useEffect(() => {
    
     const listener = (event) => {
 
       let pressedKey = convertTypedCharacter(event.key);
-      let incorrectChar = "";
-
+      
+      let forbiddenKeys = [
+        'Meta',
+        'Shift',
+        'CapsLock',
+        'Alt',
+        'Control',
+        'Compose'
+      ]
+      
       if(props.src === null) return;
-      if(pressedKey === 'Shift') return;
+      if(forbiddenKeys.includes(pressedKey)) return;
       if(pressedKey === '\t') event.preventDefault();
       
       //checks if the key is correct and updates the cursor
-      setCursorPosition(prev => {
-        
-        if(props.src[prev] === pressedKey){
-          return prev + 1;
+
+      setCodeState(prev => {
+
+        //check if the key is correct and updates the cursor
+        if(props.src[prev.cursorPosition] === pressedKey){
+          let newCursorPosition = prev.cursorPosition + 1;
+          return {
+            ...prev, cursorPosition: newCursorPosition
+          }
         }
 
-        incorrectChar = pressedKey;
-        return prev;
-
-      });
-
-      //update wrong chars array
-      // setWrongChars(prev => {
-        // if(incorrectChar !== ''){
-          // // return prev.concat(incorrectChar);
-          // return prev.concat(incorrectChar);
-        // }
-        // return prev;
-      // })
-
-
+        //the key is incorrect
+        
+        //user already pressed wrong, return the previous state
+        let newWrongChars = prev.wrongChars;
+        if(newWrongChars.length > 0 &&
+           newWrongChars[newWrongChars.length - 1] === prev.cursorPosition ){
+          
+          return prev;
+        }
+        
+        //new entry to the wrong keys array
+        newWrongChars.push(prev.cursorPosition);
+        return{
+          cursorPosition: prev.cursorPosition, wrongChars: newWrongChars
+        }
+      })
     }
 
     document.addEventListener("keydown", listener);
@@ -58,13 +76,15 @@ const GameLogic = (props) => {
     }
   }, [props.src]) 
 
-  // console.log(wrongChars);
+  // console.log(codeState);
 
   return (
     <Source 
       src = {props.src}
-      cursorPosition = {cursorPosition}
-      wrongChars = {wrongChars}
+      // cursorPosition = {cursorPosition}
+      // wrongChars = {wrongChars}
+      cursorPosition = {codeState.cursorPosition}
+      wrongChars = {codeState.wrongChars}
     />
   )
 }
