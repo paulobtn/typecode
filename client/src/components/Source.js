@@ -18,7 +18,8 @@ const Source = (props) => {
       if(index === cursorPosition){
         charClass += " cursor"
       }
-
+      
+      //styling the characters
       if(rightChars.includes(index)){
         charClass += " src-char-right"
       } else if (wrongChars.includes(index)){
@@ -38,6 +39,8 @@ const Source = (props) => {
     return (
       
       charArray.map((value, index) => {
+
+        //if it's a new line character, add a space to make the cursor appear
         if(value.character !== '\n'){
           return(
               <span key={index} className={value.charClass}>{value.character}</span>
@@ -53,10 +56,6 @@ const Source = (props) => {
 
   return (
     <div className="source-container">
-    { //<div className="cursor" style={{
-      //  opacity: '0.64',
-      //}}></div>
-    }
       <code>
         {
           renderCode(props.src,

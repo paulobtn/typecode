@@ -41,5 +41,29 @@
 .cursor {
   background-color: white;
   color:black;
-  opacity:.8;
+  opacity:.5;
+
+  animation: blink .4s linear infinite alternate;
 }
+
+@keyframes blink {
+  0%{
+    color: black;
+    background-color:white;
+  }
+  49% {
+    color: black;
+    background-color:white;
+  }
+  50%{
+    color: white;
+    background-color:transparent;
+  }
+  100%{
+    color: white;
+    background-color:transparent;
+  }
+
+}
+
+
