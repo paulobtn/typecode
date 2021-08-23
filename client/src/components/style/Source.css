@@ -14,14 +14,32 @@
 }
 
 .src-char{
-  opacity:.5;
+
 }
 
+.src-char-right{
+  opacity: 1;
+}
+.src-char-wrong{
+  opacity: 1;
+  color: #ff1133 ;
+}
+
+.src-char-before{
+  opacity: .5;
+}
+
+/* .cursor { */
+  /* position: absolute; */
+  /* display: inline-block; */
+  /* min-height: 2rem; */
+  /* height: 2rem; */
+  /* width: 1.22rem; */
+  /* background-color: white; */
+/* } */
+
 .cursor {
-  position: absolute;
-  display: inline-block;
-  min-height: 2rem;
-  height: 2rem;
-  width: 1.22rem;
   background-color: white;
+  color:black;
+  opacity:.8;
 }
