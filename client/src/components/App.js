@@ -5,13 +5,23 @@ import GameLogic from './GameLogic';
 
 function App() {
 
-  const response = useRequest('/api/source/2');
+  const response = useRequest('/api/source/1');
+
+  const renderGame = (resp) => {
+    if(resp.data ){
+      
+      return <GameLogic 
+        src = {resp.data.src}
+      /> 
+    }
+
+    return <div>loading...</div>
+  }
+
 
   return (
     <div className="App">
-      <GameLogic 
-        src = {response.data ? response.data.src : null}
-      /> 
+      {renderGame(response)}
     </div>
   );
 }
