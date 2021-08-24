@@ -102,7 +102,32 @@ const GameLogic = (props) => {
     }
   }, [props.src]) ;
 
-  console.log(codeState);
+  //Show game statistics
+  switch (codeState.gameState){
+    case GAME_STATE_IDLE:
+      console.log("start typing");
+      break;
+    case GAME_STATE_END:
+      console.log("finished!");
+      /* falls through */     
+    default:
+      
+      let charPerSec = 0
+      let wpm = 0;
+      if(codeState.pressedTime - codeState.startTime !== 0){
+        charPerSec = codeState.cursorPosition*1000/(codeState.pressedTime - codeState.startTime);
+      }
+      
+      //words per minute is characters per second divided by the average amount of
+      //characters of an english word
+      wpm = (charPerSec*60)/5.1;
+
+      console.log("characters per second: ", charPerSec);
+      console.log("words per minute: ", wpm);
+  }
+    
+
+  // console.log(codeState);
   // console.log(props.src.length);
   // console.log(timer);
   return (
