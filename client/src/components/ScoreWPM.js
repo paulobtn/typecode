@@ -17,37 +17,34 @@ const getWPM = (codeState) => {
 
 const ScoreWPM = (props) => {
 
-
-  const [scoreDisplay, setScoreDisplay] = useState({
-    timerIsActive: false,
-    counter: 0,
+  const [wpmDisplay, setWpmDisplay] = useState({
+    update: false,
     wpm: 0
   });
 
-  const setTimer = (value) => {
-    setScoreDisplay( (prev) => {
+  const setUpdater = (value) => {
+    setWpmDisplay( (prev) => {
         return (
           {
             ...prev,
-            timerIsActive: value,
-            counter: 0
+            update: value,
           }
         )
       }
     );
   }
 
-  //updates score every half second
+  //updates wpm every half second
   useEffect (() => {
     let interval;
     
     // if the game is running and timer is active
-    if(scoreDisplay.timerIsActive){
+    if(wpmDisplay.update){
       interval = setInterval(() => {
 
         //increment timer
-        setScoreDisplay( (prev) => {
-          return {...prev, counter: prev.counter + 1, wpm: getWPM(props.codeState)};
+        setWpmDisplay( (prev) => {
+          return {...prev, wpm: getWPM(props.codeState)};
         });
 
       }, 500);
@@ -57,28 +54,28 @@ const ScoreWPM = (props) => {
     return () => clearInterval(interval);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scoreDisplay, props.codeState.gameState]);
+  }, [wpmDisplay, props.codeState.gameState]);
   
-  //starts or stops timer based on the game state
+  //starts or stops updating the wpm based on the game state
   useEffect (() => {
     switch(props.codeState.gameState) {
       case 'GAME_STATE_END':
       // [> falls through <]
       case 'GAME_STATE_IDLE':
-        setTimer(false);
+        setUpdater(false);
         break;
       case 'GAME_STATE_RUNNING':
-        setTimer(true);
+        setUpdater(true);
         break;
       default:
     }
   }, [props.codeState.gameState])
 
-  console.log(scoreDisplay);
+  console.log(wpmDisplay);
   return (
     <div className="wpm-container">
       <span className="wpm-value">
-        {scoreDisplay.wpm} WPM
+        {wpmDisplay.wpm} WPM
       </span>
     </div>
   );
