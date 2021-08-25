@@ -13,17 +13,6 @@ const convertTypedCharacter = (c) => {
   }
 
 }
-//words per minute is characters per second divided by the average amount of
-//characters of an english word
-const getWPM = (codeState) => {
-
-    let charPerSec = 0;
-    if(codeState.pressedTime - codeState.startTime !== 0){
-      charPerSec = codeState.cursorPosition*1000/(codeState.pressedTime - codeState.startTime);
-    }
-    return parseInt((charPerSec*60)/5.1);
-
-}
 
 const forbiddenKeys = [
   'Meta',
@@ -119,17 +108,17 @@ const GameLogic = (props) => {
 
 
   //Show game statistics
-  switch (codeState.gameState){
-    case GAME_STATE_IDLE:
-      console.log("start typing");
-      break;
-    case GAME_STATE_END:
-      console.log("finished!");
-      /* falls through */     
-    default:
-      // console.log("words per minute: ", getWPM(codeState));
-  }
-
+  // switch (codeState.gameState){
+    // case GAME_STATE_IDLE:
+      // console.log("start typing");
+      // break;
+    // case GAME_STATE_END:
+      // console.log("finished!");
+      // [> falls through <]
+    // default:
+      // // console.log("words per minute: ", getWPM(codeState));
+  // }
+  
 
 
   // console.log(codeState);
@@ -139,7 +128,7 @@ const GameLogic = (props) => {
     <div className='game-container'>
     {
       <ScoreWPM
-        score = {getWPM(codeState)}
+        codeState = {codeState}
       />
     }
       <Source 
