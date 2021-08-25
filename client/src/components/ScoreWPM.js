@@ -24,22 +24,24 @@ const ScoreWPM = (props) => {
     wpm: 0
   });
   
-  //updates score every second
+  //updates score every half second
   useEffect (() => {
     let interval;
-
-    if(scoreDisplay.isActive){
+    
+    if(scoreDisplay.isActive && props.codeState.gameState === 'GAME_STATE_RUNNING'){
       interval = setInterval(() => {
         setScoreDisplay( (prev) => {
           return {...prev, counter: prev.counter + 1, wpm: getWPM(props.codeState)};
         });
+
+        console.log(scoreDisplay.counter);
       }, 500);
     }
 
-
     return () => clearInterval(interval);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scoreDisplay]);
+  }, [scoreDisplay, props.codeState.gameState]);
 
 
   return (
