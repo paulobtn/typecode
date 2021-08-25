@@ -38,18 +38,17 @@ const ScoreWPM = (props) => {
   useEffect (() => {
     let interval;
     
-    // if the game is running and timer is active
+    // if the updater is active, update the wpm every half second
     if(wpmDisplay.update){
       interval = setInterval(() => {
 
-        //increment timer
+        //update wpm
         setWpmDisplay( (prev) => {
           return {...prev, wpm: getWPM(props.codeState)};
         });
 
       }, 500);
     }
-    
 
     return () => clearInterval(interval);
 
