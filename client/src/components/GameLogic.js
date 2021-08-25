@@ -1,5 +1,8 @@
-import Source from './Source'
 import { useState, useEffect } from 'react';
+
+import Source from './Source';
+import ScoreWPM from './ScoreWPM';
+import './style/GameLogic.css';
 
 const convertTypedCharacter = (c) => {
   
@@ -8,6 +11,17 @@ const convertTypedCharacter = (c) => {
     case 'Tab': return '\t';
     default: return c;
   }
+
+}
+//words per minute is characters per second divided by the average amount of
+//characters of an english word
+const getWPM = (codeState) => {
+
+    let charPerSec = 0;
+    if(codeState.pressedTime - codeState.startTime !== 0){
+      charPerSec = codeState.cursorPosition*1000/(codeState.pressedTime - codeState.startTime);
+    }
+    return parseInt((charPerSec*60)/5.1);
 
 }
 
@@ -102,6 +116,8 @@ const GameLogic = (props) => {
     }
   }, [props.src]) ;
 
+
+
   //Show game statistics
   switch (codeState.gameState){
     case GAME_STATE_IDLE:
@@ -111,31 +127,25 @@ const GameLogic = (props) => {
       console.log("finished!");
       /* falls through */     
     default:
-      
-      let charPerSec = 0
-      let wpm = 0;
-      if(codeState.pressedTime - codeState.startTime !== 0){
-        charPerSec = codeState.cursorPosition*1000/(codeState.pressedTime - codeState.startTime);
-      }
-      
-      //words per minute is characters per second divided by the average amount of
-      //characters of an english word
-      wpm = (charPerSec*60)/5.1;
-
-      console.log("characters per second: ", charPerSec);
-      console.log("words per minute: ", wpm);
+      // console.log("words per minute: ", getWPM(codeState));
   }
-    
+
+
 
   // console.log(codeState);
   // console.log(props.src.length);
   // console.log(timer);
   return (
-    <Source 
-      src = {props.src}
-      cursorPosition = {codeState.cursorPosition}
-      wrongChars = {codeState.wrongChars}
-    />
+    <div className='game-container'>
+      <ScoreWPM 
+        score = {getWPM(codeState)}
+      /> 
+      <Source 
+        src = {props.src}
+        cursorPosition = {codeState.cursorPosition}
+        wrongChars = {codeState.wrongChars}
+      />
+    </div>
   )
 }
 

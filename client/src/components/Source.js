@@ -1,6 +1,6 @@
 // import React from 'react';
 // import { useState } from 'react';
-import './style/Source.css'
+import './style/Source.css';
 
 const renderCode = (src, cursorPosition, wrongChars = []) => {
   

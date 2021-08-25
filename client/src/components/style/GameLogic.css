@@ -1,0 +1,7 @@
+.game-container{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 50%;
+  /* min-width: 40%; */
+}

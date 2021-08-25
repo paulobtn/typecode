@@ -1,16 +1,21 @@
 .source-container {
-  /* font-size: calc(10px + 1.1vmin); */
   position: relative;
   font-size: 2.0rem;
   color: white;
-  border: 2px solid #181c24;
-  border-left: 10px solid #686c74 ;
-  border-radius: 10px;
-  width:70%;
-  height:85vh;
-  padding-left:3.3rem;
-  padding-top:3rem;
-  background-color: #383c44;
+  /* background-color: #383c44; */
+  /* border: 2px solid #181c24; */
+  /* border-left: 10px solid #686c74 ; */
+  /* border-radius: 10px; */
+  /* padding-left:3.3rem; */
+  /* padding-top:3rem; */
+  /* padding-right:10rem; */
+  /* padding-bottom: 20rem; */
+  width: 100%;
+
+  align-self:center;
+
+  display: flex;
+  justify-content: center;
 }
 
 .src-char{

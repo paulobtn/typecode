@@ -5,7 +5,7 @@ import GameLogic from './GameLogic';
 
 function App() {
 
-  const response = useRequest('/api/source/1');
+  const response = useRequest('/api/source/random');
 
   const renderGame = (resp) => {
     if(resp.data ){

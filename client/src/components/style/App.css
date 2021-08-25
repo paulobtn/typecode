@@ -36,10 +36,11 @@ code {
 
 .App {
   display:flex;
-  height:100vh;
-  justify-content:center;
+  flex-direction: column;
   align-items:center;
-  /* border-style: solid; */
+  height:100vh;
+  /* justify-content:center; */
+  border-style: solid;
 }
 
 /* .source-container { */
