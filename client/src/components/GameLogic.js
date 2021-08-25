@@ -137,9 +137,11 @@ const GameLogic = (props) => {
   // console.log(timer);
   return (
     <div className='game-container'>
-      <ScoreWPM 
+    {
+      <ScoreWPM
         score = {getWPM(codeState)}
-      /> 
+      />
+    }
       <Source 
         src = {props.src}
         cursorPosition = {codeState.cursorPosition}
