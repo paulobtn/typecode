@@ -40,7 +40,12 @@ code {
   align-items:center;
   height:100vh;
   /* justify-content:center; */
-  border-style: solid;
+  /* border-style: solid; */
+}
+
+.error{
+  font-size:3.3rem;
+  color: red;
 }
 
 /* .source-container { */

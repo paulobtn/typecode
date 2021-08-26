@@ -70,7 +70,6 @@ const ScoreWPM = (props) => {
     }
   }, [props.codeState.gameState])
 
-  console.log(wpmDisplay);
   return (
     <div className="wpm-container">
       <span className="wpm-value">

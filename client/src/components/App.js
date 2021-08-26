@@ -1,21 +1,26 @@
 import './style/App.css';
 
-import useRequest from '../hooks/useRequest';
+import useFetch from '../hooks/useFetch';
 import GameLogic from './GameLogic';
 
 function App() {
 
-  const response = useRequest('/api/source/random');
+  const response = useFetch('/api/source/random');
 
   const renderGame = (resp) => {
-    if(resp.data ){
-      
-      return <GameLogic 
-        src = {resp.data.src}
-      /> 
-    }
 
-    return <div>loading...</div>
+    switch(response.status){
+      case 'fetched':
+        return <GameLogic
+          src = {resp.data.src}
+        />
+      case 'error':
+        console.log(resp.error);
+        return <div className='error'>{resp.error}</div>
+      default:
+        return <div>Loading...</div>
+
+    }
   }
 
 
