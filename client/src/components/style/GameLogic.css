@@ -15,7 +15,12 @@
 
 .reload{
 
-  height: 3rem;
+  height: 2.5rem;
   align-self: center;
   fill: #585d6788 ;
+}
+
+.reload:hover {
+  fill: #585d67FF;
+  cursor: pointer;
 }
