@@ -59,9 +59,13 @@ const ScoreWPM = (props) => {
   useEffect (() => {
     switch(props.codeState.gameState) {
       case 'GAME_STATE_END':
-      // [> falls through <]
-      case 'GAME_STATE_IDLE':
         setUpdater(false);
+        break;
+      case 'GAME_STATE_IDLE':
+        setWpmDisplay({
+          update: false,
+          wpm: 0
+        })
         break;
       case 'GAME_STATE_RUNNING':
         setUpdater(true);
@@ -69,7 +73,7 @@ const ScoreWPM = (props) => {
       default:
     }
   }, [props.codeState.gameState])
-
+  
   return (
     <div className="wpm-container">
       <span className="wpm-value">

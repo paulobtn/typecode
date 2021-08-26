@@ -40,6 +40,19 @@ const GameLogic = (props) => {
     gameState: GAME_STATE_IDLE
   });
 
+  const restartGame = () => {
+    setCodeState(
+      {
+        cursorPosition: 0,
+        wrongChars: [],
+        startTime: 0,
+        endTime: 0,
+        pressedTime: 0,
+        gameState: GAME_STATE_IDLE
+      }
+    )
+  };
+
   //controls input and updates the codeState 
   useEffect(() => {
    
@@ -100,12 +113,12 @@ const GameLogic = (props) => {
     }
 
     document.addEventListener("keydown", listener);
+    restartGame();
 
     return () => {
       document.removeEventListener("keydown", listener);
     }
   }, [props.src]) ;
-
 
 
   //Show game statistics
@@ -121,8 +134,7 @@ const GameLogic = (props) => {
   // }
   
 
-
-  // console.log(codeState);
+  console.log(codeState);
   // console.log(props.src.length);
   // console.log(timer);
   return (
@@ -132,7 +144,10 @@ const GameLogic = (props) => {
         <ScoreWPM
         codeState = {codeState}
         />
-        <ReloadIcon className='reload'/>
+        <ReloadIcon 
+            className='reload'
+            onClick={restartGame}
+        />
       </div>
       <Source 
         src = {props.src}
