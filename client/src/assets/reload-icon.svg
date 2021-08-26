@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 54.344 55.625" xmlns="http://www.w3.org/2000/svg" cc="http://creativecommons.org/ns#" dc="http://purl.org/dc/elements/1.1/" rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<g transform="translate(-344.94 -314.12)">
+<path d="m399.28 314.12-9.125 7.25c-4.799-4.0243-10.962-6.4688-17.656-6.4688-15.129 0-27.562 12.434-27.562 27.562 0 15.129 12.434 27.281 27.562 27.281 11.86 0 22.052-7.4546 25.906-17.969l-9.875-2.4062c-2.6427 6.2319-8.7668 10.531-16.031 10.531-9.7241 0-17.438-7.7134-17.438-17.438 0-9.7241 7.7134-17.719 17.438-17.719 3.6079 0 6.923 1.1171 9.6875 3l-9.0312 7.1875 26.125 4.8438v-25.656z" color="#000000" style="block-progression:tb;text-indent:0;text-transform:none"/>
+</g>
+<metadata>
+<rdfRDF>
+<ccWork>
+<dcformat>image/svg+xml</dcformat>
+<dctype rdfesource="http://purl.org/dc/dcmitype/StillImage"/>
+<cclicense rdfresource="http://creativecommons.org/licenses/publicdomain/"/>
+<dcpublisher>
+<ccAgent rdfabout="http://openclipart.org/">
+<dctitle>Openclipart</dctitle>
+</ccAgent>
+</dcpublisher>
+<dctitle>Reload icon</dctitle>
+<dcdate>2012-07-06T14:30:15</dcdate>
+<dcdescription>simple reload / recycle icon</dcdescription>
+<dcsource>https://openclipart.org/detail/171074/reload-icon-by-mlampret-171074</dcsource>
+<dccreator>
+<ccAgent>
+<dctitle>mlampret</dctitle>
+</ccAgent>
+</dccreator>
+<dcsubject>
+<rdfBag>
+<rdfli>black</rdfli>
+<rdfli>free</rdfli>
+<rdfli>icon</rdfli>
+<rdfli>icons</rdfli>
+<rdfli>recycle</rdfli>
+<rdfli>reload</rdfli>
+<rdfli>simple</rdfli>
+</rdfBag>
+</dcsubject>
+</ccWork>
+<ccLicense rdfabout="http://creativecommons.org/licenses/publicdomain/">
+<ccpermits rdfresource="http://creativecommons.org/ns#Reproduction"/>
+<ccpermits rdfresource="http://creativecommons.org/ns#Distribution"/>
+<ccpermits rdfresource="http://creativecommons.org/ns#DerivativeWorks"/>
+</ccLicense>
+</rdfRDF>
+</metadata>
+</svg>

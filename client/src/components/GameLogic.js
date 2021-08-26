@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import Source from './Source';
 import ScoreWPM from './ScoreWPM';
+import {ReactComponent as ReloadIcon} from '../assets/reload-icon.svg';
 import './style/GameLogic.css';
 
 const convertTypedCharacter = (c) => {
@@ -126,11 +127,13 @@ const GameLogic = (props) => {
   // console.log(timer);
   return (
     <div className='game-container'>
-    {
-      <ScoreWPM
+      
+      <div className='wpm-and-reload-container'>
+        <ScoreWPM
         codeState = {codeState}
-      />
-    }
+        />
+        <ReloadIcon className='reload'/>
+      </div>
       <Source 
         src = {props.src}
         cursorPosition = {codeState.cursorPosition}

@@ -5,3 +5,17 @@
   min-width: 40%;
   /* min-width: 40%; */
 }
+
+.wpm-and-reload-container{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.reload{
+
+  height: 3rem;
+  align-self: center;
+  fill: #585d6788 ;
+}
