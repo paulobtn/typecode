@@ -8,7 +8,7 @@ function App() {
   
 
    // const response = useFetch('/api/source/random');
-   const {fetchData, state} = useFetch({
+   const {fetchData, fetchState} = useFetch({
      url: '/api/source/random',
    })
 
@@ -18,7 +18,7 @@ function App() {
 
   const renderGame = (resp) => {
 
-   switch(state.status){
+   switch(fetchState.status){
       case 'fetched':
         return <GameLogic
           src = {resp.data.src}
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      {renderGame(state)}
+      {renderGame(fetchState)}
     </div>
   );
 }
