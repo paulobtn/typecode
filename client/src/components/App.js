@@ -9,7 +9,7 @@ function App() {
 
    // const response = useFetch('/api/source/random');
    const {fetchData, fetchState} = useFetch({
-     url: '/api/source/random',
+     defaultUrl: '/api/source/random',
    })
 
   useEffect(() => {
@@ -22,6 +22,7 @@ function App() {
       case 'fetched':
         return <GameLogic
           src = {resp.data.src}
+          fetchData = {fetchData}
         />
       case 'error':
         console.log(resp.error);

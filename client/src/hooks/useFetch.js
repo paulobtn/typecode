@@ -1,6 +1,6 @@
 import {  useReducer , useCallback} from 'react';
 
-const useFetch = ({url, options = null}) => {
+const useFetch = ({defaultUrl, defaultOptions = null, defaultOnSuccess = null}) => {
 
     const initialState = {
         status: 'idle',
@@ -22,7 +22,11 @@ const useFetch = ({url, options = null}) => {
     }, initialState);
 
 
-    const fetchData = useCallback(async () => {
+    const fetchData = useCallback(async ( {
+                                           url = defaultUrl,
+                                           options = defaultOptions,
+                                           onSuccess = defaultOnSuccess
+                                          } = {}) => {
         
         dispatch({type: 'FETCHING'});
 
@@ -35,7 +39,7 @@ const useFetch = ({url, options = null}) => {
           dispatch({type: 'FETCH_ERROR', payload: error.message});
         }
       
-    },[options, url]);
+    },[defaultUrl, defaultOptions, defaultOnSuccess]);
 
     return {fetchData, fetchState: state};
 };

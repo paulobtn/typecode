@@ -134,7 +134,7 @@ const GameLogic = (props) => {
   // }
   
 
-  console.log(codeState);
+  // console.log(codeState);
   // console.log(props.src.length);
   // console.log(timer);
   return (
@@ -142,11 +142,15 @@ const GameLogic = (props) => {
       
       <div className='wpm-and-reload-container'>
         <ScoreWPM
-        codeState = {codeState}
+          codeState = {codeState}
         />
         <ReloadIcon 
             className='reload'
-            onClick={resetCodeState}
+            onClick={ () => { //fetch new data and restart the codeState
+              props.fetchData({onSuccess : () => {
+                resetCodeState();
+              }});
+            }}
         />
       </div>
       <Source 
