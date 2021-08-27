@@ -2,14 +2,23 @@ import './style/App.css';
 
 import useFetch from '../hooks/useFetch';
 import GameLogic from './GameLogic';
+import {useEffect} from 'react';
 
 function App() {
+  
 
-  const response = useFetch('/api/source/random');
+   // const response = useFetch('/api/source/random');
+   const {fetchData, state} = useFetch({
+     url: '/api/source/random',
+   })
+
+  useEffect(() => {
+     fetchData();
+  }, [fetchData])
 
   const renderGame = (resp) => {
 
-    switch(response.status){
+   switch(state.status){
       case 'fetched':
         return <GameLogic
           src = {resp.data.src}
@@ -26,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      {renderGame(response)}
+      {renderGame(state)}
     </div>
   );
 }

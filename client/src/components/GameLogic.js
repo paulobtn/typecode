@@ -40,7 +40,7 @@ const GameLogic = (props) => {
     gameState: GAME_STATE_IDLE
   });
 
-  const restartGame = () => {
+  const resetCodeState = () => {
     setCodeState(
       {
         cursorPosition: 0,
@@ -113,7 +113,7 @@ const GameLogic = (props) => {
     }
 
     document.addEventListener("keydown", listener);
-    restartGame();
+    resetCodeState();
 
     return () => {
       document.removeEventListener("keydown", listener);
@@ -146,7 +146,7 @@ const GameLogic = (props) => {
         />
         <ReloadIcon 
             className='reload'
-            onClick={restartGame}
+            onClick={resetCodeState}
         />
       </div>
       <Source 
