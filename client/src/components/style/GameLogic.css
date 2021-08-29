@@ -18,9 +18,11 @@
   height: 2.5rem;
   align-self: center;
   fill: #585d6788 ;
+  transition: transform .3s;
 }
 
 .reload:hover {
   fill: #585d67FF;
   cursor: pointer;
+  transform: rotate(45deg);
 }

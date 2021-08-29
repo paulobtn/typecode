@@ -77,7 +77,7 @@ const ScoreWPM = (props) => {
   return (
     <div className="wpm-container">
       <span className="wpm-value">
-        {wpmDisplay.wpm} WPM
+        {wpmDisplay.wpm} wpm
       </span>
     </div>
   );
