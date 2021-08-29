@@ -101,8 +101,9 @@ const GameLogic = (props) => {
         }
 
         //beyond that line, the key is incorrect
-        //user already pressed wrong, don't change cursor values
         let newWrongChars = prev.wrongChars;
+
+        //if user already pressed a wrong key, don't change cursor values
         if(newWrongChars.length > 0 &&
            newWrongChars[newWrongChars.length - 1] === prev.cursorPosition ){
           
@@ -118,6 +119,8 @@ const GameLogic = (props) => {
     }
 
     document.addEventListener("keydown", listener);
+
+    //reset state every time the source code changes
     resetCodeState();
 
     return () => {
@@ -127,8 +130,7 @@ const GameLogic = (props) => {
 
 
   // console.log(codeState)
-  // console.log(props.src.length);
-  // console.log(timer);
+  
   return (
     <div className='game-container'>
       

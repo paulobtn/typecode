@@ -31,16 +31,33 @@ const ResultsModal = (props) => {
 
   }, [props.codeState.gameState, open]);
 
-  return ( 
-    <Modal
-      isOpen = { isOpen } 
-    >
-    <h2>Results: </h2>
-    <h3>Score: 100wpm</h3>
-    <h3>Accuracy: 98%</h3>
-    <button type='button' onClick={() => {close()}}>Play again</button>
-    </Modal>
-  )
+  
+  const renderResults = () => {
+
+    let charPerSec = 0;
+    let {codeState} = props;
+    if(codeState.pressedTime - codeState.startTime !== 0){
+      charPerSec = codeState.cursorPosition*1000/(codeState.pressedTime - codeState.startTime);
+    }
+
+    const wpm = parseInt((charPerSec*60)/5);
+    let accuracy = 1 - (codeState.wrongChars.length/codeState.cursorPosition);
+
+
+    return ( 
+      <Modal
+        isOpen = { isOpen } 
+      >
+        <h2>Results: </h2>
+        <h3>Score: {wpm} wpm</h3>
+        <h3>Accuracy: {parseInt(accuracy*100)}%</h3>
+      <button type='button' onClick={() => {close()}}>Play again</button>
+      </Modal>
+    )
+
+  }
+
+  return (renderResults());
 }
 
 export default ResultsModal;
