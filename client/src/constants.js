@@ -1,0 +1,3 @@
+export const GAME_STATE_IDLE    = 'GAME_STATE_IDLE';
+export const GAME_STATE_RUNNING = 'GAME_STATE_RUNNING';
+export const GAME_STATE_END   = 'GAME_STATE_END';

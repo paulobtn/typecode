@@ -1,22 +1,8 @@
-import React, {useState, 
-               useImperativeHandle,
-               useCallback,
-               forwardRef 
-              } from "react";
 import {createPortal} from 'react-dom';
 
 import "./style/Modal.css";
 
-export function Modal({children, defaultOpened = false}, ref ){
-
-  const [isOpen, setIsOpen] = useState(defaultOpened);
-
-  const close = useCallback(() => setIsOpen(false), []);
-
-  useImperativeHandle(ref, () => ({
-    open: () => setIsOpen(true),
-    close
-  }), [close]) 
+export function Modal({children, isOpen}){
 
   return createPortal( 
     isOpen ? (
@@ -29,4 +15,4 @@ export function Modal({children, defaultOpened = false}, ref ){
   )
 }
 
-export default forwardRef(Modal);
+export default Modal;

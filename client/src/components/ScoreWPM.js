@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 
 import './style/ScoreWPM.css';
+import {GAME_STATE_IDLE,
+        GAME_STATE_RUNNING, 
+        GAME_STATE_END} from '../constants';
 
 //words per minute is characters per second divided by the average amount of
 //characters of an english word
@@ -58,16 +61,16 @@ const ScoreWPM = (props) => {
   //starts or stops updating the wpm based on the game state
   useEffect (() => {
     switch(props.codeState.gameState) {
-      case 'GAME_STATE_END':
+      case GAME_STATE_END:
         setUpdater(false);
         break;
-      case 'GAME_STATE_IDLE':
+      case GAME_STATE_IDLE:
         setWpmDisplay({
           update: false,
           wpm: 0
         })
         break;
-      case 'GAME_STATE_RUNNING':
+      case GAME_STATE_RUNNING:
         setUpdater(true);
         break;
       default:

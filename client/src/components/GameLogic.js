@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import Source from './Source';
 import ScoreWPM from './ScoreWPM';
-import Modal from './Modal';
+import ResultsModal from './ResultsModal';
 import {ReactComponent as ReloadIcon} from '../assets/reload-icon.svg';
+import {GAME_STATE_IDLE, GAME_STATE_RUNNING, GAME_STATE_END} from '../constants';
 import './style/GameLogic.css';
 import './style/Modal.css';
 
@@ -27,30 +28,7 @@ const forbiddenKeys = [
   'Escape'
 ];
 
-
-const GAME_STATE_IDLE    = 'GAME_STATE_IDLE';
-const GAME_STATE_RUNNING = 'GAME_STATE_RUNNING';
-const GAME_STATE_END   = 'GAME_STATE_END';
-
-
-const ResultsModal = (props) => {
-
-  const modal = useRef(null);
-
-  //if the game is finished show the results
-  if(props.codeState.gameState === GAME_STATE_END){
-    modal.current.open();
-  }
-
-  return ( 
-    <Modal ref={modal}>
-       Results modal 
-    </Modal>
-  )
-}
-
 const GameLogic = (props) => {
-
 
   const [codeState, setCodeState] = useState({
     cursorPosition: 0,
@@ -142,9 +120,7 @@ const GameLogic = (props) => {
   }, [props.src]) ;
 
 
-
-
-  // console.log(codeState);
+  // console.log(codeState)
   // console.log(props.src.length);
   // console.log(timer);
   return (
