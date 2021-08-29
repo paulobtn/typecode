@@ -8,12 +8,18 @@ const ResultsModal = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const open = useCallback(() => {
       setIsOpen(true);
+      if(props.onOpen){
+        props.onOpen();
+      }
     }
-    , []);
+    , [props]);
   const close = useCallback(() => {
       setIsOpen(false);
+      if(props.onClose){
+        props.onClose();
+      }
     }
-    , []);
+    , [props]);
 
 
   useEffect(() => {
@@ -23,13 +29,16 @@ const ResultsModal = (props) => {
       open();
     }
 
-  }, [props.codeState.gameState]);
+  }, [props.codeState.gameState, open]);
 
   return ( 
     <Modal
       isOpen = { isOpen } 
     >
-       Results modal 
+    <h2>Results: </h2>
+    <h3>Score: 100wpm</h3>
+    <h3>Accuracy: 98%</h3>
+    <button type='button' onClick={() => {close()}}>Play again</button>
     </Modal>
   )
 }

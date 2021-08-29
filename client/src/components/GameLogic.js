@@ -52,6 +52,12 @@ const GameLogic = (props) => {
     )
   };
 
+  const restartGame = () => { //fetch new data and restart the codeState
+    props.fetchData({onSuccess : () => {
+      resetCodeState();
+    }});
+  } 
+
   //controls input and updates the codeState 
   useEffect(() => {
    
@@ -132,11 +138,7 @@ const GameLogic = (props) => {
         />
         <ReloadIcon 
             className='reload'
-            onClick={ () => { //fetch new data and restart the codeState
-              props.fetchData({onSuccess : () => {
-                resetCodeState();
-              }});
-            }}
+            onClick={restartGame}
         />
       </div>
       <Source 
@@ -146,6 +148,7 @@ const GameLogic = (props) => {
       />
       <ResultsModal
         codeState = {codeState}
+        onClose={restartGame}
       />
     </div>
   )
