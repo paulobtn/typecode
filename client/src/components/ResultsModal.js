@@ -2,6 +2,7 @@ import {  useState, useCallback, useEffect  } from 'react';
 
 import Modal from './Modal';
 import { GAME_STATE_END } from '../constants';
+import {ReactComponent as ReloadIcon} from '../assets/reload-icon.svg';
 
 const ResultsModal = (props) => {
   
@@ -48,10 +49,12 @@ const ResultsModal = (props) => {
       <Modal
         isOpen = { isOpen } 
       >
-        <h2>Results: </h2>
-        <h3>Score: {wpm} wpm</h3>
-        <h3>Accuracy: {parseInt(accuracy*100)}%</h3>
-      <button type='button' onClick={() => {close()}}>Play again</button>
+        <h3><span>Score</span>: {wpm} wpm</h3>
+        <h3><span>Accuracy</span>: {parseInt(accuracy*100)}%</h3>
+        <ReloadIcon 
+            className='reload play-again'
+            onClick={close}
+        />
       </Modal>
     )
 

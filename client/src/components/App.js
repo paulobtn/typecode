@@ -10,6 +10,7 @@ function App() {
    // const response = useFetch('/api/source/random');
    const {fetchData, fetchState} = useFetch({
      defaultUrl: '/api/source/5',
+     // defaultUrl: '/api/source/random',
    })
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
         console.log(resp.error);
         return <div className='error'>{resp.error}</div>
       default:
-        return <div>Loading...</div>
+        return null;
 
     }
   }
