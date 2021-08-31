@@ -71,7 +71,10 @@ const GameLogic = (props) => {
       
       //checks if the key is correct and updates the cursor
       setCodeState(prev => {
-
+        
+        //don't do anything if the game is over
+        if(prev.gameState === GAME_STATE_END) return prev;
+        
         let newCodeState = {...prev};
 
         //current time
@@ -129,7 +132,7 @@ const GameLogic = (props) => {
   }, [props.src]) ;
 
 
-  // console.log(codeState)
+  console.log(codeState)
   
   return (
     <div className='game-container'>

@@ -62,12 +62,5 @@
 
 .play-again {
   text-align: center;
-  fill: #4488cc88 !important;
+  /* fill: #4488cc77 !important; */
 }
-/* .modal > .modal-body  button { */
-  /* font-size: 2.5rem; */
-  /* background-color: transparent; */
-  /* color: #55aaff; */
-  /* border-style: none; */
-  /* cursor: pointer; */
-/* } */
