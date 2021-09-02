@@ -6,6 +6,8 @@ It serves random pieces of source code from different open source projects and
 the user has to type it as fast as possible. The game will show the statistics
 for words per minute and accuracy. [Try it out on Heroku](https://dashboard.heroku.com/apps/vast-journey-40229)!
 
+![webapp screenshot](/virtual-piano.png)
+
 ## Installation
 
 To use this app in a development environment, first install the dependencies from the api server and the client by going
