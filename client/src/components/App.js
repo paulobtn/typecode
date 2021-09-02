@@ -30,7 +30,6 @@ function App() {
     }
   }
 
-
   return (
     <div className="App">
       {renderGame(fetchState)}
