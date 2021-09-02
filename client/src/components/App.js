@@ -6,11 +6,8 @@ import {useEffect} from 'react';
 
 function App() {
   
-
-   // const response = useFetch('/api/source/random');
    const {fetchData, fetchState} = useFetch({
-     defaultUrl: '/api/source/5',
-     // defaultUrl: '/api/source/random',
+     defaultUrl: '/api/source/random',
    })
 
   useEffect(() => {
@@ -30,7 +27,6 @@ function App() {
         return <div className='error'>{resp.error}</div>
       default:
         return null;
-
     }
   }
 

@@ -132,8 +132,6 @@ const GameLogic = (props) => {
   }, [props.src]) ;
 
 
-  console.log(codeState)
-  
   return (
     <div className='game-container'>
       

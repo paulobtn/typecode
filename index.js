@@ -1,15 +1,7 @@
 const app = require('./src/app.js');
 const pool = require('./src/pool');
 
-const pgCredentials = require('./pg-credentials');
-// pgCredentials must be in the format
-// module.exports = {
-    // host: "localhost",
-    // port: 5432,
-    // database: "your db",
-    // user: "your pg user",
-    // password: "your pg password"
-// }
+const pgCredentials = require('./config/pg-credentials');
 
 pool
   .connect(pgCredentials)
