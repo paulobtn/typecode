@@ -4,7 +4,7 @@ Typecode is a typing game for programmers developed in node, react and
 postgres SQL.
 It serves random pieces of source code from different open source projects and
 the user has to type it as fast as possible. The game will show the statistics
-for words per minute and accuracy. [Try it out on Heroku](https://dashboard.heroku.com/apps/vast-journey-40229)!
+for words per minute and accuracy. [Try it out on Heroku](https://vast-journey-40229.herokuapp.com/)!
 
 ## Installation
 
