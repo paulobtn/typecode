@@ -3,11 +3,13 @@ const pool = require('./src/pool');
 
 const pgCredentials = require('./config/pg-credentials');
 
+const PORT = process.env.PORT || 3001;
+
 pool
   .connect(pgCredentials)
   .then(() => {
-    app().listen(3001, () => {
-      console.log('Listening on port 3001');
+    app().listen(PORT, () => {
+      console.log('Listening on port', PORT);
     });
   })
   .catch((err) => console.error(err));
