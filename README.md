@@ -1,6 +1,6 @@
 # Typecode
 
-Typecode is a typing game for programmers developed in node, react and
+Typecode is a typing game for programmers developed in Node.js with express, React and
 postgreSQL.
 It serves random pieces of source code from different open source projects and
 the user has to type it as fast as possible. The game will show the statistics
@@ -15,7 +15,7 @@ to the root directory of this project and running:
 ```bash
 npm install && npm install --prefix client
 ```
-Next, create a [Postgres](https://www.postgresql.org/) database and run the following migration to create the required
+Next, create a [PostgreSQL](https://www.postgresql.org/) database and run the following migration to create the required
 objects:
 
 ```bash
