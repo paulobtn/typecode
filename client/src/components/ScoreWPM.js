@@ -5,7 +5,7 @@ import {GAME_STATE_IDLE,
         GAME_STATE_RUNNING, 
         GAME_STATE_END} from '../constants';
 
-//words per minute is characters per second divided by the average amount of
+//words per minute is characters per second times 60 divided by the average amount of
 //characters of an english word
 const getWPM = (codeState) => {
 
